@@ -88,7 +88,7 @@ export function App() {
 
       <nav className="nav">
         <button className="brand brand--btn" onClick={() => setView("home")}>
-          <span className="brand__dot" />
+          <img className="brand__logo" src="/myla-logo.svg" alt="" />
           {concept.name}
         </button>
         <div className="nav__links">
@@ -211,7 +211,7 @@ export function App() {
 
       <footer className="footer">
         <span className="brand">
-          <span className="brand__dot" />
+          <img className="brand__logo" src="/myla-logo.svg" alt="" />
           {concept.name}
         </span>
         <small>Sprachen lernen · Kulturen verstehen · sicher verbunden</small>
