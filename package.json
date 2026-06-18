@@ -1,0 +1,18 @@
+{
+  "name": "myla",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Myla – Sprach- und Kulturaustausch-App für Erwachsene (18+).",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=@myla/backend & npm run dev --workspace=@myla/frontend",
+    "build": "npm run build --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
