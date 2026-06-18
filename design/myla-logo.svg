@@ -1,12 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Myla Logo – Erdkugel mit Sprechblase">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Myla Logo – Sprechblase vorne, bunter Globus dahinter rechts">
   <defs>
     <linearGradient id="ocean" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#6FD0FF"/>
-      <stop offset="1" stop-color="#3B82F6"/>
-    </linearGradient>
-    <linearGradient id="land" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#7BD389"/>
-      <stop offset="1" stop-color="#3FA34D"/>
+      <stop offset="0" stop-color="#7FD8FF"/>
+      <stop offset="1" stop-color="#4AA3F0"/>
     </linearGradient>
     <linearGradient id="bubbleStroke" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#FF7E9D"/>
@@ -14,41 +10,42 @@
       <stop offset="1" stop-color="#A78BFA"/>
     </linearGradient>
     <clipPath id="globeClip">
-      <circle cx="120" cy="120" r="96"/>
+      <circle cx="158" cy="108" r="78"/>
     </clipPath>
   </defs>
 
-  <!-- Ozean -->
-  <circle cx="120" cy="120" r="96" fill="url(#ocean)"/>
-
-  <!-- Kontinente (stilisiert), in der Kugel beschnitten -->
-  <g clip-path="url(#globeClip)" fill="url(#land)">
-    <!-- Landmasse oben links -->
-    <ellipse cx="72" cy="70" rx="26" ry="18"/>
-    <ellipse cx="96" cy="62" rx="20" ry="15"/>
-    <ellipse cx="84" cy="86" rx="22" ry="16"/>
-    <!-- Landmasse rechts -->
-    <ellipse cx="164" cy="98" rx="24" ry="20"/>
-    <ellipse cx="176" cy="126" rx="18" ry="22"/>
-    <ellipse cx="150" cy="116" rx="16" ry="14"/>
-    <!-- Landmasse unten -->
-    <ellipse cx="104" cy="170" rx="22" ry="18"/>
-    <ellipse cx="128" cy="178" rx="18" ry="14"/>
-    <!-- kleine Insel links -->
-    <ellipse cx="50" cy="132" rx="14" ry="12"/>
+  <!-- ===== Globus (hinten, nach rechts versetzt) ===== -->
+  <circle cx="158" cy="108" r="78" fill="url(#ocean)"/>
+  <g clip-path="url(#globeClip)">
+    <!-- bunte Kontinente -->
+    <g>
+      <ellipse cx="150" cy="58" rx="26" ry="17" fill="#6BCB77"/>
+      <ellipse cx="178" cy="64" rx="18" ry="13" fill="#7BD389"/>
+      <ellipse cx="200" cy="104" rx="24" ry="20" fill="#FFB05C"/>
+      <ellipse cx="214" cy="132" rx="14" ry="16" fill="#FFD166"/>
+      <ellipse cx="168" cy="150" rx="24" ry="18" fill="#FF7E9D"/>
+      <ellipse cx="196" cy="160" rx="16" ry="13" fill="#F2789F"/>
+      <ellipse cx="120" cy="120" rx="18" ry="22" fill="#A78BFA"/>
+      <ellipse cx="116" cy="84" rx="13" ry="12" fill="#9B7BF0"/>
+    </g>
+    <!-- Globus-Gitter (dezent) -->
+    <g fill="none" stroke="#FFFFFF" stroke-width="3" opacity="0.55">
+      <ellipse cx="158" cy="108" rx="30" ry="78"/>
+      <line x1="80" y1="108" x2="236" y2="108"/>
+      <line x1="86" y1="74" x2="230" y2="74"/>
+      <line x1="86" y1="142" x2="230" y2="142"/>
+    </g>
   </g>
+  <circle cx="158" cy="108" r="78" fill="none" stroke="#FFFFFF" stroke-width="4" opacity="0.7"/>
+  <ellipse cx="132" cy="74" rx="26" ry="15" fill="#FFFFFF" opacity="0.12"/>
 
-  <!-- Kugel-Rand & dezenter Glanz -->
-  <circle cx="120" cy="120" r="96" fill="none" stroke="#FFFFFF" stroke-width="4" opacity="0.7"/>
-  <ellipse cx="92" cy="82" rx="34" ry="20" fill="#FFFFFF" opacity="0.12"/>
-
-  <!-- Sprechblase mitten im Globus -->
+  <!-- ===== Sprechblase (vorne, links) ===== -->
   <g>
-    <path d="M88 96 H152 A20 20 0 0 1 172 116 V140 A20 20 0 0 1 152 160
-             H132 L118 178 L120 160 H88 A20 20 0 0 1 68 140 V116 A20 20 0 0 1 88 96 Z"
-          fill="#FFFFFF" stroke="url(#bubbleStroke)" stroke-width="6" stroke-linejoin="round"/>
-    <circle cx="100" cy="128" r="7" fill="#FF7E9D"/>
-    <circle cx="120" cy="128" r="7" fill="#FFB05C"/>
-    <circle cx="140" cy="128" r="7" fill="#A78BFA"/>
+    <path d="M40 78 H136 A22 22 0 0 1 158 100 V134 A22 22 0 0 1 136 156
+             H78 L52 184 L60 156 H40 A22 22 0 0 1 18 134 V100 A22 22 0 0 1 40 78 Z"
+          fill="#FFFFFF" stroke="url(#bubbleStroke)" stroke-width="7" stroke-linejoin="round"/>
+    <circle cx="64" cy="117" r="8" fill="#FF7E9D"/>
+    <circle cx="88" cy="117" r="8" fill="#FFB05C"/>
+    <circle cx="112" cy="117" r="8" fill="#A78BFA"/>
   </g>
 </svg>
