@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import type { ConceptInfo, ConversationMode } from "@myla/shared";
+import { Permissions } from "./Permissions.js";
 
 /** Passende Emojis/Icons je Konversations-Modus. */
 const MODE_ICON: Record<ConversationMode, string> = {
@@ -62,6 +63,7 @@ const STEPS = [
 
 export function App() {
   const [concept, setConcept] = useState<ConceptInfo>(DEFAULT_CONCEPT);
+  const [view, setView] = useState<"home" | "permissions">("home");
 
   useEffect(() => {
     // Optional: Inhalte vom Backend laden, wenn erreichbar. Schlägt der
@@ -85,20 +87,31 @@ export function App() {
       </div>
 
       <nav className="nav">
-        <a className="brand" href="#top">
+        <button className="brand brand--btn" onClick={() => setView("home")}>
           <span className="brand__dot" />
           {concept.name}
-        </a>
+        </button>
         <div className="nav__links">
-          <a href="#modes">Modi</a>
-          <a href="#how">So geht's</a>
-          <a href="#safety">Sicherheit</a>
-          <a className="btn btn--ghost btn--sm" href="#join">
+          {view === "home" && (
+            <>
+              <a href="#modes">Modi</a>
+              <a href="#how">So geht's</a>
+              <a href="#safety">Sicherheit</a>
+            </>
+          )}
+          <button
+            className="btn btn--ghost btn--sm"
+            onClick={() => setView("permissions")}
+          >
             Anmelden
-          </a>
+          </button>
         </div>
       </nav>
 
+      {view === "permissions" ? (
+        <Permissions minAge={minAge} onBack={() => setView("home")} />
+      ) : (
+        <>
       <header className="hero" id="top">
         <span className="pill">🔒 Nur für Erwachsene ab {minAge} Jahren</span>
         <h1 className="hero__title">
@@ -107,9 +120,9 @@ export function App() {
         </h1>
         <p className="hero__sub">{concept.tagline}</p>
         <div className="hero__cta">
-          <a className="btn btn--primary" href="#join">
+          <button className="btn btn--primary" onClick={() => setView("permissions")}>
             Jetzt kostenlos starten
-          </a>
+          </button>
           <a className="btn btn--ghost" href="#how">
             So funktioniert's
           </a>
@@ -189,10 +202,12 @@ export function App() {
       <section className="cta" id="join">
         <h2>Bereit, die Welt kennenzulernen?</h2>
         <p>Werde Teil einer neugierigen, weltoffenen Community.</p>
-        <a className="btn btn--primary btn--lg" href="#top">
+        <button className="btn btn--primary btn--lg" onClick={() => setView("permissions")}>
           Kostenlos beitreten
-        </a>
+        </button>
       </section>
+        </>
+      )}
 
       <footer className="footer">
         <span className="brand">
