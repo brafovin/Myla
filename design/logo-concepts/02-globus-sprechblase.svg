@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="220" height="220" role="img" aria-label="Myla Logo – Globus mit Sprechblase">
+  <defs>
+    <linearGradient id="g2bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6EE7DF"/>
+      <stop offset="1" stop-color="#7C9DF9"/>
+    </linearGradient>
+    <linearGradient id="g2b" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFD166"/>
+      <stop offset="1" stop-color="#FF8FA3"/>
+    </linearGradient>
+  </defs>
+  <rect width="220" height="220" rx="48" fill="#FFFFFF"/>
+  <!-- Globus -->
+  <g transform="translate(36 40)">
+    <circle cx="74" cy="74" r="70" fill="url(#g2bg)"/>
+    <g fill="none" stroke="#FFFFFF" stroke-width="5" opacity="0.85">
+      <ellipse cx="74" cy="74" rx="30" ry="70"/>
+      <line x1="4" y1="74" x2="144" y2="74"/>
+      <path d="M14 40 H134" />
+      <path d="M14 108 H134" />
+    </g>
+  </g>
+  <!-- Sprechblase mit Schwanz -->
+  <g transform="translate(116 112)">
+    <path d="M14 6 h66 a22 22 0 0 1 22 22 v22 a22 22 0 0 1 -22 22 h-30 l-26 22 v-22 h-10 a22 22 0 0 1 -22 -22 v-22 a22 22 0 0 1 22 -22 z" fill="url(#g2b)" stroke="#FFFFFF" stroke-width="6"/>
+    <circle cx="36" cy="39" r="6" fill="#FFFFFF"/>
+    <circle cx="56" cy="39" r="6" fill="#FFFFFF"/>
+    <circle cx="76" cy="39" r="6" fill="#FFFFFF"/>
+  </g>
+</svg>

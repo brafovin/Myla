@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 220" width="220" height="220" role="img" aria-label="Myla Logo – freundliches M">
+  <defs>
+    <linearGradient id="g3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF7E9D"/>
+      <stop offset="0.5" stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#4ECDC4"/>
+    </linearGradient>
+  </defs>
+  <rect width="220" height="220" rx="48" fill="#FFFFFF"/>
+  <!-- M als zwei verbundene Bögen (Brücke zwischen zwei Menschen) -->
+  <path d="M46 162 V92 a30 30 0 0 1 60 0 v0 a30 30 0 0 1 60 0 v70"
+        fill="none" stroke="url(#g3)" stroke-width="22" stroke-linecap="round"/>
+  <!-- zwei Köpfe/Punkte -->
+  <circle cx="76" cy="72" r="13" fill="#FF7E9D"/>
+  <circle cx="146" cy="72" r="13" fill="#4ECDC4"/>
+</svg>
