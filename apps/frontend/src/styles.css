@@ -635,16 +635,80 @@ a {
   margin-bottom: 1.5rem;
 }
 
-/* --- Responsive ---------------------------------------------------------- */
+/* --- Responsive ----------------------------------------------------------
+   Drei Geräteklassen:
+   - Desktop/Computer: Standard-Layout (oben definiert)
+   - Tablet:  bis 900px
+   - Handy:   bis 640px
+   Die Grid-Bereiche (Karten/Schritte) passen sich dank auto-fit ohnehin an.
+-------------------------------------------------------------------------- */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .section,
+  .cta {
+    padding-top: 3.25rem;
+    padding-bottom: 3.25rem;
+  }
+  .hero {
+    padding-top: 3rem;
+  }
+  .nav__links {
+    gap: 1.1rem;
+  }
+}
+
+/* Handy */
 @media (max-width: 640px) {
+  .nav {
+    padding: 1rem;
+  }
   .nav__links a:not(.btn) {
     display: none;
   }
-  .safety {
+  .hero {
+    padding: 2.5rem 1.25rem 2rem;
+  }
+  .hero__cta {
     flex-direction: column;
-    padding: 1.75rem;
+    align-items: stretch;
+  }
+  .hero__cta .btn {
+    width: 100%;
   }
   .stats {
-    gap: 1.75rem;
+    gap: 1.5rem;
+  }
+  .stat strong {
+    font-size: 1.6rem;
+  }
+  .safety {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+  .cards,
+  .steps,
+  .perm__grid {
+    grid-template-columns: 1fr;
+  }
+  .perm__actions .btn {
+    width: 100%;
+  }
+}
+
+/* Sehr kleine Geräte */
+@media (max-width: 380px) {
+  .stats {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+
+/* Touch-Geräte: kein Hover-Anheben (vermeidet „klebende" Effekte) */
+@media (hover: none) {
+  .btn:hover,
+  .card:hover,
+  .step:hover {
+    transform: none;
   }
 }
