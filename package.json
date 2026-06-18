@@ -8,9 +8,14 @@
     "apps/*"
   ],
   "scripts": {
-    "dev": "npm run dev --workspace=@myla/backend & npm run dev --workspace=@myla/frontend",
+    "dev": "concurrently -n backend,frontend -c blue,magenta \"npm:dev:backend\" \"npm:dev:frontend\"",
+    "dev:backend": "npm run dev --workspace=@myla/backend",
+    "dev:frontend": "npm run dev --workspace=@myla/frontend",
     "build": "npm run build --workspaces --if-present",
     "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   },
   "engines": {
     "node": ">=20"
