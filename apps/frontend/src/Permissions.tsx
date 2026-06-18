@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-/** Geräte-Berechtigungen, die Myla nutzen kann. */
+/** Geräte-Berechtigungen, die CoKomi nutzen kann. */
 type PermKey = "microphone" | "camera" | "location";
 
 /** Aktueller Status einer Berechtigung. */
@@ -49,16 +49,19 @@ export function Permissions({
 }: {
   minAge: number;
   onBack: () => void;
-  onEnter: () => void;
+  onEnter: (nickname: string) => void;
 }) {
   const [statuses, setStatuses] = useState<Record<PermKey, PermStatus>>({
     microphone: "unknown",
     camera: "unknown",
     location: "unknown",
   });
+  const [nickname, setNickname] = useState("");
   const [isAdult, setIsAdult] = useState(false);
   const [acceptedTerms, setAcceptedTerms] = useState(false);
   const [done, setDone] = useState(false);
+
+  const nicknameOk = nickname.trim().length >= 2;
 
   const setStatus = (key: PermKey, status: PermStatus) =>
     setStatuses((prev) => ({ ...prev, [key]: status }));
@@ -113,7 +116,7 @@ export function Permissions({
     }
   }
 
-  const canContinue = isAdult && acceptedTerms;
+  const canContinue = nicknameOk && isAdult && acceptedTerms;
 
   if (done) {
     return (
@@ -125,7 +128,7 @@ export function Permissions({
             Danke – deine Bestätigungen sind gespeichert. Du kannst jetzt loslegen!
           </p>
           <div className="hero__cta">
-            <button className="btn btn--primary" onClick={onEnter}>
+            <button className="btn btn--primary" onClick={() => onEnter(nickname.trim())}>
               App öffnen
             </button>
             <button className="btn btn--ghost" onClick={onBack}>
@@ -147,8 +150,25 @@ export function Permissions({
         <span className="eyebrow">Bevor du loslegst</span>
         <h2>Berechtigungen &amp; Einwilligungen</h2>
         <p>
-          Damit Myla für alle ein sicherer Ort bleibt, brauchen wir kurz deine Bestätigung.
+          Damit CoKomi für alle ein sicherer Ort bleibt, brauchen wir kurz deine Bestätigung.
           Geräte-Zugriffe fragt anschließend dein Browser ab – du kannst sie jederzeit ändern.
+        </p>
+      </div>
+
+      {/* Nickname */}
+      <div className="perm__field">
+        <label htmlFor="nickname">Dein Nickname</label>
+        <input
+          id="nickname"
+          className="perm__input"
+          type="text"
+          value={nickname}
+          maxLength={20}
+          onChange={(e) => setNickname(e.target.value)}
+          placeholder="z. B. Sprachfuchs"
+        />
+        <p className="perm__hint">
+          Nutze einen Nickname statt deines echten Namens – das schützt deine Privatsphäre.
         </p>
       </div>
 
@@ -221,7 +241,7 @@ export function Permissions({
         </button>
         {!canContinue && (
           <p className="perm__hint">
-            Bitte bestätige Alter und Bedingungen, um fortzufahren.
+            Bitte wähle einen Nickname und bestätige Alter und Bedingungen, um fortzufahren.
           </p>
         )}
       </div>

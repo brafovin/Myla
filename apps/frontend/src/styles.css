@@ -510,6 +510,31 @@ a {
   color: var(--text);
 }
 
+.perm__field {
+  margin-bottom: 1.75rem;
+}
+
+.perm__field label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 0.45rem;
+}
+
+.perm__input {
+  width: 100%;
+  border: 1.5px solid var(--card-border);
+  border-radius: 14px;
+  padding: 0.8rem 1.1rem;
+  font: inherit;
+  outline: none;
+  background: #fff;
+  color: var(--text);
+}
+
+.perm__input:focus {
+  border-color: var(--c-purple);
+}
+
 .perm__consents {
   display: grid;
   gap: 1rem;

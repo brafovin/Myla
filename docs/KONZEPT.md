@@ -1,10 +1,10 @@
-# Myla – Produktkonzept
+# CoKomi – Produktkonzept
 
 ## 1. Vision
 
-Myla bringt Menschen aus verschiedenen Ländern zusammen, damit sie sich unterhalten,
+CoKomi bringt Menschen aus verschiedenen Ländern zusammen, damit sie sich unterhalten,
 Sprachen voneinander lernen und fremde Kulturen verstehen können. Wer nicht lernen,
-sondern einfach reden möchte, kann sich auf Englisch austauschen. Myla soll ein
+sondern einfach reden möchte, kann sich auf Englisch austauschen. CoKomi soll ein
 **sicherer, respektvoller Ort für Erwachsene** sein.
 
 ## 2. Zielgruppe
@@ -61,7 +61,7 @@ Beim Start einer Unterhaltung wählt man einen Modus:
 
 - Keine Video-/Sprachanrufe in der ersten Version (höheres Moderationsrisiko).
 - Keine öffentlichen Gruppen-/Massen-Chats zu Beginn (1:1 zuerst, sicherer prüfbar).
-- Keine Dating-Funktionen; Myla ist Sprach-/Kulturaustausch, kein Dating-Portal.
+- Keine Dating-Funktionen; CoKomi ist Sprach-/Kulturaustausch, kein Dating-Portal.
 
 ## 6. Erfolgskriterien
 

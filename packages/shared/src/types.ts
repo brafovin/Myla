@@ -1,5 +1,5 @@
 /**
- * Gemeinsame Domänen-Typen für Myla.
+ * Gemeinsame Domänen-Typen für CoKomi.
  *
  * Diese Typen werden von Backend und Frontend geteilt, damit beide Seiten
  * dasselbe Datenmodell verwenden. Sie spiegeln das Konzept aus docs/ wider:
@@ -51,7 +51,8 @@ export type AgeVerificationStatus =
 
 export interface User {
   id: string;
-  displayName: string;
+  /** Öffentlich sichtbarer Nickname (kein echter Name – Datenschutz). */
+  nickname: string;
   email: string;
   country?: CountryCode;
   /** Sprachen, die die Person spricht. */

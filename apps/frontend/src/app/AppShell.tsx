@@ -8,7 +8,6 @@ import {
   SettingsScreen,
   type Screen,
 } from "./screens.js";
-import { ME } from "./mock.js";
 
 const NAV: { id: Screen; icon: string; label: string }[] = [
   { id: "start", icon: "🏠", label: "Start" },
@@ -19,21 +18,23 @@ const NAV: { id: Screen; icon: string; label: string }[] = [
 ];
 
 export function AppShell({
+  nickname,
   onOpenPermissions,
   onLogout,
 }: {
+  nickname: string;
   onOpenPermissions: () => void;
   onLogout: () => void;
 }) {
   const [screen, setScreen] = useState<Screen>("start");
 
   return (
-    <div className="myla-app">
+    <div className="cokomi-app">
       {/* Seitenleiste (Desktop/Laptop) */}
       <aside className="app-sidebar">
         <div className="app-sidebar__brand">
-          <img src="/myla-logo.svg" alt="" className="brand__logo" />
-          <span>Myla</span>
+          <img src="/cokomi-logo.svg" alt="" className="brand__logo" />
+          <span>CoKomi</span>
         </div>
         <nav className="app-sidebar__nav">
           {NAV.map((item) => (
@@ -48,17 +49,17 @@ export function AppShell({
           ))}
         </nav>
         <button className="app-sidebar__me" onClick={() => setScreen("profile")}>
-          <span className="me-avatar">{ME.name.charAt(0)}</span>
-          <span>{ME.name}</span>
+          <span className="me-avatar">{nickname.charAt(0).toUpperCase()}</span>
+          <span>{nickname}</span>
         </button>
       </aside>
 
       {/* Inhaltsbereich */}
       <main className="app-main">
-        {screen === "start" && <StartScreen go={setScreen} />}
+        {screen === "start" && <StartScreen go={setScreen} nickname={nickname} />}
         {screen === "discover" && <DiscoverScreen go={setScreen} />}
         {screen === "chats" && <ChatsScreen />}
-        {screen === "profile" && <ProfileScreen />}
+        {screen === "profile" && <ProfileScreen nickname={nickname} />}
         {screen === "settings" && (
           <SettingsScreen onOpenPermissions={onOpenPermissions} onLogout={onLogout} />
         )}

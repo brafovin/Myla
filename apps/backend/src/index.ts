@@ -12,9 +12,9 @@ const PORT = Number(process.env.PORT ?? 4000);
 app.get("/", (_req, res) => {
   res.type("html").send(
     `<!doctype html><html lang="de"><meta charset="utf-8">
-     <title>Myla API</title>
+     <title>CoKomi API</title>
      <body style="font-family:system-ui;background:#0b1020;color:#eef2ff;padding:3rem">
-       <h1>Myla – API</h1>
+       <h1>CoKomi – API</h1>
        <p>Dies ist der API-Server. Die Webseite (Frontend) wird separat ausgeliefert.</p>
        <p>Verfügbare Endpunkte: <code>/api/health</code>, <code>/api/concept</code></p>
      </body></html>`,
@@ -23,7 +23,7 @@ app.get("/", (_req, res) => {
 
 /** Health-Check für Monitoring/Deployments. */
 app.get("/api/health", (_req, res) => {
-  res.json({ status: "ok", service: "myla-backend", time: new Date().toISOString() });
+  res.json({ status: "ok", service: "cokomi-backend", time: new Date().toISOString() });
 });
 
 /**
@@ -32,7 +32,7 @@ app.get("/api/health", (_req, res) => {
  */
 app.get("/api/concept", (_req, res) => {
   const concept: ConceptInfo = {
-    name: "Myla",
+    name: "CoKomi",
     tagline:
       "Sprachen lernen, Kulturen verstehen – oder einfach auf Englisch reden. Nur für Erwachsene.",
     minAge: 18,
@@ -59,5 +59,5 @@ app.get("/api/concept", (_req, res) => {
 
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
-  console.log(`Myla-Backend läuft auf http://localhost:${PORT}`);
+  console.log(`CoKomi-Backend läuft auf http://localhost:${PORT}`);
 });

@@ -2,7 +2,7 @@
 
 ## 1. Überblick
 
-Myla ist eine Web-App mit klassischer Client–Server-Trennung in einem **Monorepo**
+CoKomi ist eine Web-App mit klassischer Client–Server-Trennung in einem **Monorepo**
 (npm-Workspaces):
 
 ```

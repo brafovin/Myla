@@ -1,6 +1,6 @@
-# Myla
+# CoKomi
 
-**Myla** ist eine Web-App, mit der sich Menschen aus verschiedenen Ländern unterhalten,
+**CoKomi** ist eine Web-App, mit der sich Menschen aus verschiedenen Ländern unterhalten,
 voneinander Sprachen lernen und fremde Kulturen kennenlernen können. Wer nur reden will,
 kann sich auch einfach auf **Englisch** mit anderen austauschen.
 
@@ -27,7 +27,7 @@ kann sich auch einfach auf **Englisch** mit anderen austauschen.
 ## Projektstruktur
 
 ```
-Myla/
+CoKomi/
 ├── apps/
 │   ├── backend/      # API-Server (Node + Express + TypeScript)
 │   └── frontend/     # Web-Oberfläche (React + Vite + TypeScript)

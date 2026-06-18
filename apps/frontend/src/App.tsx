@@ -16,7 +16,7 @@ const MODE_ICON: Record<ConversationMode, string> = {
  * Backend erreichbar, werden diese Werte aktualisiert.
  */
 const DEFAULT_CONCEPT: ConceptInfo = {
-  name: "Myla",
+  name: "CoKomi",
   tagline:
     "Sprachen lernen, Kulturen verstehen – oder einfach auf Englisch reden. Nur für Erwachsene.",
   minAge: 18,
@@ -65,6 +65,7 @@ const STEPS = [
 export function App() {
   const [concept, setConcept] = useState<ConceptInfo>(DEFAULT_CONCEPT);
   const [view, setView] = useState<"home" | "permissions" | "app">("home");
+  const [nickname, setNickname] = useState("Gast");
 
   useEffect(() => {
     // Optional: Inhalte vom Backend laden, wenn erreichbar. Schlägt der
@@ -83,6 +84,7 @@ export function App() {
   if (view === "app") {
     return (
       <AppShell
+        nickname={nickname}
         onLogout={() => setView("home")}
         onOpenPermissions={() => setView("permissions")}
       />
@@ -99,7 +101,7 @@ export function App() {
 
       <nav className="nav">
         <button className="brand brand--btn" onClick={() => setView("home")}>
-          <img className="brand__logo" src="/myla-logo.svg" alt="" />
+          <img className="brand__logo" src="/cokomi-logo.svg" alt="" />
           {concept.name}
         </button>
         <div className="nav__links">
@@ -123,7 +125,10 @@ export function App() {
         <Permissions
           minAge={minAge}
           onBack={() => setView("home")}
-          onEnter={() => setView("app")}
+          onEnter={(nick) => {
+            setNickname(nick);
+            setView("app");
+          }}
         />
       ) : (
         <>
@@ -162,7 +167,7 @@ export function App() {
       <section className="section" id="modes">
         <div className="section__head">
           <span className="eyebrow">Drei Wege, dich zu verbinden</span>
-          <h2>So kannst du Myla nutzen</h2>
+          <h2>So kannst du CoKomi nutzen</h2>
           <p>Wähle vor jedem Gespräch, worum es dir geht – ganz ohne Druck.</p>
         </div>
         <div className="cards">
@@ -200,7 +205,7 @@ export function App() {
             <span className="eyebrow">Deine Sicherheit</span>
             <h2>Ein Ort, an dem du dich wohlfühlst</h2>
             <p>
-              Myla ist ausschließlich für Erwachsene. Bei Meldungen oder Auffälligkeiten
+              CoKomi ist ausschließlich für Erwachsene. Bei Meldungen oder Auffälligkeiten
               prüft ein Team die Konversation. Bei Verstößen gilt: erst eine Verwarnung,
               bei Wiederholung die Sperre – und bei Verdacht auf Straftaten informieren
               wir die Polizei.
@@ -226,7 +231,7 @@ export function App() {
 
       <footer className="footer">
         <span className="brand">
-          <img className="brand__logo" src="/myla-logo.svg" alt="" />
+          <img className="brand__logo" src="/cokomi-logo.svg" alt="" />
           {concept.name}
         </span>
         <small>Sprachen lernen · Kulturen verstehen · sicher verbunden</small>

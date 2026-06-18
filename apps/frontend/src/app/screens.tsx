@@ -65,12 +65,18 @@ function PartnerCard({ partner, onChat }: { partner: Partner; onChat: () => void
 }
 
 /* --- Start --------------------------------------------------------------- */
-export function StartScreen({ go }: { go: (s: Screen) => void }) {
+export function StartScreen({
+  go,
+  nickname,
+}: {
+  go: (s: Screen) => void;
+  nickname: string;
+}) {
   const suggestions = PARTNERS.slice(0, 3);
   return (
     <div className="screen">
       <header className="screen__head">
-        <h1>Hallo, {ME.name} 👋</h1>
+        <h1>Hallo, {nickname} 👋</h1>
         <p>Bereit für ein neues Gespräch?</p>
       </header>
 
@@ -236,7 +242,7 @@ export function ChatsScreen() {
 }
 
 /* --- Profil -------------------------------------------------------------- */
-export function ProfileScreen() {
+export function ProfileScreen({ nickname }: { nickname: string }) {
   return (
     <div className="screen">
       <header className="screen__head">
@@ -245,12 +251,12 @@ export function ProfileScreen() {
 
       <div className="profile">
         <div className="profile__top">
-          <Avatar name={ME.name} flag={ME.flag} />
+          <Avatar name={nickname} flag={ME.flag} />
           <div>
             <h2>
-              {ME.name} {ME.flag}
+              {nickname} {ME.flag}
             </h2>
-            <p className="muted">{ME.country}</p>
+            <p className="muted">Nickname · {ME.country}</p>
           </div>
           <button className="btn btn--ghost btn--sm">Bearbeiten</button>
         </div>

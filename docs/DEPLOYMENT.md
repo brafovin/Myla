@@ -2,7 +2,7 @@
 
 ## Das Wichtigste zuerst
 
-Myla besteht aus **zwei Teilen**:
+CoKomi besteht aus **zwei Teilen**:
 
 - **Frontend** – die sichtbare Webseite (React). **Das willst du deployen, damit Leute
   die Seite sehen.**

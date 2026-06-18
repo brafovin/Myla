@@ -1,8 +1,8 @@
 {
-  "name": "myla",
+  "name": "cokomi",
   "version": "0.1.0",
   "private": true,
-  "description": "Myla – Sprach- und Kulturaustausch-App für Erwachsene (18+).",
+  "description": "CoKomi – Sprach- und Kulturaustausch-App für Erwachsene (18+).",
   "workspaces": [
     "packages/*",
     "apps/*"

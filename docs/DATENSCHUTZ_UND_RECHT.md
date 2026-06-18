@@ -6,7 +6,7 @@
 
 ## 1. Datenschutz (DSGVO)
 
-Myla verarbeitet personenbezogene Daten und private Konversationen. Grundsätze:
+CoKomi verarbeitet personenbezogene Daten und private Konversationen. Grundsätze:
 
 - **Datenminimierung** – nur erheben/speichern, was nötig ist.
 - **Zweckbindung** – Daten nur für angegebene Zwecke (Betrieb, Sicherheit, Moderation).

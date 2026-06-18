@@ -1,6 +1,6 @@
 # Moderation & Eskalation
 
-Myla setzt auf **menschliche Prüfung**: Auffällige oder gemeldete Konversationen werden
+CoKomi setzt auf **menschliche Prüfung**: Auffällige oder gemeldete Konversationen werden
 von geschulten Moderator:innen bewertet. Ziel ist Schutz der Nutzer:innen – besonders die
 Verhinderung von Straftaten – bei gleichzeitig fairem, transparentem Verfahren.
 

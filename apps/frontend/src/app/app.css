@@ -2,7 +2,7 @@
    Innenleben der App – nutzt die globalen Farb-Variablen aus styles.css
    ========================================================================= */
 
-.myla-app {
+.cokomi-app {
   min-height: 100vh;
   display: flex;
   background: var(--bg);
