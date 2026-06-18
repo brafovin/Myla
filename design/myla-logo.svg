@@ -14,6 +14,8 @@
     </clipPath>
   </defs>
 
+  <!-- alles horizontal gespiegelt: Globus links, Sprechblase rechts -->
+  <g transform="translate(240,0) scale(-1,1)">
   <!-- ===== Globus (hinten, nach rechts versetzt) ===== -->
   <circle cx="158" cy="108" r="78" fill="url(#ocean)"/>
   <g clip-path="url(#globeClip)">
@@ -47,5 +49,6 @@
     <circle cx="64" cy="117" r="8" fill="#FF7E9D"/>
     <circle cx="88" cy="117" r="8" fill="#FFB05C"/>
     <circle cx="112" cy="117" r="8" fill="#A78BFA"/>
+  </g>
   </g>
 </svg>
