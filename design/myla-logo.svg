@@ -1,37 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Myla Logo – Sprechblase mit buntem Globus">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Myla Logo – Erdkugel mit Sprechblase">
   <defs>
+    <linearGradient id="ocean" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6FD0FF"/>
+      <stop offset="1" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="land" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7BD389"/>
+      <stop offset="1" stop-color="#3FA34D"/>
+    </linearGradient>
     <linearGradient id="bubbleStroke" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#FF7E9D"/>
-      <stop offset="0.5" stop-color="#A78BFA"/>
-      <stop offset="1" stop-color="#4ECDC4"/>
+      <stop offset="0.5" stop-color="#FFB05C"/>
+      <stop offset="1" stop-color="#A78BFA"/>
     </linearGradient>
     <clipPath id="globeClip">
-      <circle cx="120" cy="92" r="58"/>
+      <circle cx="120" cy="120" r="96"/>
     </clipPath>
   </defs>
 
-  <!-- Sprechblase mit Schwanz unten links -->
-  <path d="M68 28 H172 A44 44 0 0 1 216 72 V124 A44 44 0 0 1 172 168
-           H96 L58 202 L80 168 H68 A44 44 0 0 1 24 124 V72 A44 44 0 0 1 68 28 Z"
-        fill="#FFFFFF" stroke="url(#bubbleStroke)" stroke-width="7" stroke-linejoin="round"/>
+  <!-- Ozean -->
+  <circle cx="120" cy="120" r="96" fill="url(#ocean)"/>
 
-  <!-- Bunter Globus -->
-  <g clip-path="url(#globeClip)">
-    <rect x="62"  y="34" width="19.4" height="116" fill="#FF7E9D"/>
-    <rect x="81.4" y="34" width="19.3" height="116" fill="#FFA45C"/>
-    <rect x="100.7" y="34" width="19.3" height="116" fill="#FFD166"/>
-    <rect x="120" y="34" width="19.3" height="116" fill="#4ECDC4"/>
-    <rect x="139.3" y="34" width="19.4" height="116" fill="#5B8DEF"/>
-    <rect x="158.7" y="34" width="19.3" height="116" fill="#A78BFA"/>
-    <!-- Globus-Gitternetz -->
-    <g fill="none" stroke="#FFFFFF" stroke-width="4" opacity="0.9">
-      <ellipse cx="120" cy="92" rx="23" ry="58"/>
-      <line x1="120" y1="34" x2="120" y2="150"/>
-      <line x1="62" y1="92" x2="178" y2="92"/>
-      <line x1="62" y1="66" x2="178" y2="66"/>
-      <line x1="62" y1="118" x2="178" y2="118"/>
-    </g>
+  <!-- Kontinente (stilisiert), in der Kugel beschnitten -->
+  <g clip-path="url(#globeClip)" fill="url(#land)">
+    <!-- Landmasse oben links -->
+    <ellipse cx="72" cy="70" rx="26" ry="18"/>
+    <ellipse cx="96" cy="62" rx="20" ry="15"/>
+    <ellipse cx="84" cy="86" rx="22" ry="16"/>
+    <!-- Landmasse rechts -->
+    <ellipse cx="164" cy="98" rx="24" ry="20"/>
+    <ellipse cx="176" cy="126" rx="18" ry="22"/>
+    <ellipse cx="150" cy="116" rx="16" ry="14"/>
+    <!-- Landmasse unten -->
+    <ellipse cx="104" cy="170" rx="22" ry="18"/>
+    <ellipse cx="128" cy="178" rx="18" ry="14"/>
+    <!-- kleine Insel links -->
+    <ellipse cx="50" cy="132" rx="14" ry="12"/>
   </g>
-  <!-- sauberer Außenring -->
-  <circle cx="120" cy="92" r="58" fill="none" stroke="#FFFFFF" stroke-width="5"/>
+
+  <!-- Kugel-Rand & dezenter Glanz -->
+  <circle cx="120" cy="120" r="96" fill="none" stroke="#FFFFFF" stroke-width="4" opacity="0.7"/>
+  <ellipse cx="92" cy="82" rx="34" ry="20" fill="#FFFFFF" opacity="0.12"/>
+
+  <!-- Sprechblase mitten im Globus -->
+  <g>
+    <path d="M88 96 H152 A20 20 0 0 1 172 116 V140 A20 20 0 0 1 152 160
+             H132 L118 178 L120 160 H88 A20 20 0 0 1 68 140 V116 A20 20 0 0 1 88 96 Z"
+          fill="#FFFFFF" stroke="url(#bubbleStroke)" stroke-width="6" stroke-linejoin="round"/>
+    <circle cx="100" cy="128" r="7" fill="#FF7E9D"/>
+    <circle cx="120" cy="128" r="7" fill="#FFB05C"/>
+    <circle cx="140" cy="128" r="7" fill="#A78BFA"/>
+  </g>
 </svg>
