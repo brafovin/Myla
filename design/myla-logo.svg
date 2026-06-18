@@ -14,6 +14,9 @@
     </clipPath>
   </defs>
 
+  <!-- schwarzer Hintergrund -->
+  <rect width="240" height="240" rx="48" fill="#000000"/>
+
   <!-- alles horizontal gespiegelt: Globus links, Sprechblase rechts -->
   <g transform="translate(240,0) scale(-1,1)">
   <!-- ===== Globus (hinten, nach rechts versetzt) ===== -->
