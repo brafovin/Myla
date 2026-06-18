@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { ConceptInfo, ConversationMode } from "@myla/shared";
 import { Permissions } from "./Permissions.js";
+import { AppShell } from "./app/AppShell.js";
 
 /** Passende Emojis/Icons je Konversations-Modus. */
 const MODE_ICON: Record<ConversationMode, string> = {
@@ -63,7 +64,7 @@ const STEPS = [
 
 export function App() {
   const [concept, setConcept] = useState<ConceptInfo>(DEFAULT_CONCEPT);
-  const [view, setView] = useState<"home" | "permissions">("home");
+  const [view, setView] = useState<"home" | "permissions" | "app">("home");
 
   useEffect(() => {
     // Optional: Inhalte vom Backend laden, wenn erreichbar. Schlägt der
@@ -77,6 +78,16 @@ export function App() {
   }, []);
 
   const minAge = concept.minAge;
+
+  // Innenleben der App (nach dem Login) – Vollbild ohne Landing-Navigation.
+  if (view === "app") {
+    return (
+      <AppShell
+        onLogout={() => setView("home")}
+        onOpenPermissions={() => setView("permissions")}
+      />
+    );
+  }
 
   return (
     <div className="app">
@@ -109,7 +120,11 @@ export function App() {
       </nav>
 
       {view === "permissions" ? (
-        <Permissions minAge={minAge} onBack={() => setView("home")} />
+        <Permissions
+          minAge={minAge}
+          onBack={() => setView("home")}
+          onEnter={() => setView("app")}
+        />
       ) : (
         <>
       <header className="hero" id="top">

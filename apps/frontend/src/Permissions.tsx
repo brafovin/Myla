@@ -45,9 +45,11 @@ const STATUS_LABEL: Record<PermStatus, string> = {
 export function Permissions({
   minAge,
   onBack,
+  onEnter,
 }: {
   minAge: number;
   onBack: () => void;
+  onEnter: () => void;
 }) {
   const [statuses, setStatuses] = useState<Record<PermKey, PermStatus>>({
     microphone: "unknown",
@@ -120,12 +122,16 @@ export function Permissions({
           <div className="perm__success-icon">🎉</div>
           <h2>Alles bereit!</h2>
           <p>
-            Danke – deine Bestätigungen sind gespeichert. Sobald die Anmeldung fertig
-            gebaut ist, geht es hier direkt weiter.
+            Danke – deine Bestätigungen sind gespeichert. Du kannst jetzt loslegen!
           </p>
-          <button className="btn btn--primary" onClick={onBack}>
-            Zur Startseite
-          </button>
+          <div className="hero__cta">
+            <button className="btn btn--primary" onClick={onEnter}>
+              App öffnen
+            </button>
+            <button className="btn btn--ghost" onClick={onBack}>
+              Zur Startseite
+            </button>
+          </div>
         </div>
       </section>
     );
