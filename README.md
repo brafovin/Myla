@@ -4,9 +4,10 @@
 voneinander Sprachen lernen und fremde Kulturen kennenlernen können. Wer nur reden will,
 kann sich auch einfach auf **Englisch** mit anderen austauschen.
 
-> Status: **Grundgerüst & Konzept** (erster Meilenstein). Die hier eingerichtete Struktur
-> ist die Basis, auf der die einzelnen Funktionen (Registrierung, Chat, Moderation …)
-> nach und nach aufgebaut werden.
+> Status: **Klickbarer Prototyp**. Startseite, Anmeldung (Nickname + Einwilligungen,
+> 18+) und das App-Innenleben (Start, Entdecken, Chats, Profil, Einstellungen) sind als
+> Oberfläche fertig und nutzen Beispiel-Daten. Als Nächstes folgen echtes Backend,
+> Registrierung/Login und die Chat-/Moderationslogik.
 
 ## Die Idee in Kürze
 
@@ -43,6 +44,8 @@ CoKomi/
 - [`docs/ARCHITEKTUR.md`](docs/ARCHITEKTUR.md) – technische Architektur & Datenmodell
 - [`docs/MODERATION.md`](docs/MODERATION.md) – Moderations- & Eskalationsprozess
 - [`docs/DATENSCHUTZ_UND_RECHT.md`](docs/DATENSCHUTZ_UND_RECHT.md) – DSGVO, Altersprüfung, Polizei
+- [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) – Bereitstellung (Vercel)
+- [`docs/LOKAL_AUSPROBIEREN.md`](docs/LOKAL_AUSPROBIEREN.md) – CoKomi lokal starten (Windows)
 
 ## Erste Schritte (lokale Entwicklung)
 
@@ -58,11 +61,12 @@ npm run dev          # Backend + Frontend parallel starten
 
 ## Roadmap (Vorschlag)
 
-| Meilenstein | Inhalt |
-|---|---|
-| **M1 (jetzt)** | Grundgerüst + Konzept |
-| M2 | Registrierung & Altersprüfung (18+) |
-| M3 | Profile, Sprach-/Kultur-Präferenzen, Matching |
-| M4 | Echtzeit-Chat (Text), Übersetzungs-/Lernhilfen |
-| M5 | Melde- & Moderationssystem (menschliche Prüfung) |
-| M6 | Eskalation: Verwarnung → Sperre → Behörden-Schnittstelle |
+| Meilenstein | Inhalt | Status |
+|---|---|---|
+| M1 | Grundgerüst + Konzept | ✅ fertig |
+| M2 | Logo, farbig-freundliches Design | ✅ fertig |
+| M3 | Klickbarer Prototyp: Startseite, Anmeldung (Nickname, 18+), App-Innenleben | ✅ fertig |
+| M4 | Echtes Backend + Datenbank (statt Beispiel-Daten) | offen |
+| M5 | Registrierung & Login mit echter Altersprüfung | offen |
+| M6 | Echtzeit-Chat & Sprachanrufe | offen |
+| M7 | Melde- & Moderationssystem, Eskalation (Verwarnung → Sperre → Behörden) | offen |

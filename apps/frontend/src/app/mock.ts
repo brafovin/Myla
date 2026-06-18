@@ -31,7 +31,6 @@ export interface ChatPreview {
 }
 
 export const ME = {
-  name: "Alex",
   flag: "🇩🇪",
   country: "Deutschland",
   speaks: [
