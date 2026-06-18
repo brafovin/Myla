@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" role="img" aria-label="Myla Logo – Sprechblase vorne, bunter Globus dahinter rechts">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 12 240 216" width="240" height="216" role="img" aria-label="Myla Logo – Sprechblase vorne, bunter Globus dahinter rechts">
   <defs>
     <linearGradient id="ocean" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#7FD8FF"/>
@@ -12,7 +12,13 @@
     <clipPath id="globeClip">
       <circle cx="158" cy="108" r="78"/>
     </clipPath>
+    <clipPath id="ovalClip">
+      <ellipse cx="120" cy="120" rx="120" ry="108"/>
+    </clipPath>
   </defs>
+
+  <!-- alles auf die ovale Form beschneiden (außerhalb transparent) -->
+  <g clip-path="url(#ovalClip)">
 
   <!-- schwarzer Hintergrund -->
   <ellipse cx="120" cy="120" rx="120" ry="108" fill="#000000"/>
@@ -52,6 +58,7 @@
     <circle cx="64" cy="117" r="8" fill="#FF7E9D"/>
     <circle cx="88" cy="117" r="8" fill="#FFB05C"/>
     <circle cx="112" cy="117" r="8" fill="#A78BFA"/>
+  </g>
   </g>
   </g>
 </svg>
