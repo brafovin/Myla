@@ -8,6 +8,35 @@ const MODE_ICON: Record<ConversationMode, string> = {
   english: "💬",
 };
 
+/**
+ * Standard-Inhalte, damit die Startseite auch ohne erreichbares Backend
+ * vollständig aussieht (z. B. bei einem statischen Deployment). Ist das
+ * Backend erreichbar, werden diese Werte aktualisiert.
+ */
+const DEFAULT_CONCEPT: ConceptInfo = {
+  name: "Myla",
+  tagline:
+    "Sprachen lernen, Kulturen verstehen – oder einfach auf Englisch reden. Nur für Erwachsene.",
+  minAge: 18,
+  modes: [
+    {
+      id: "learn",
+      title: "Sprache lernen",
+      description: "Übe mit Muttersprachler:innen aus anderen Ländern.",
+    },
+    {
+      id: "culture",
+      title: "Kultur entdecken",
+      description: "Verstehe Alltag, Bräuche und Sichtweisen anderer Länder.",
+    },
+    {
+      id: "english",
+      title: "Einfach reden",
+      description: "Keine Lust zu lernen? Unterhalte dich auf Englisch.",
+    },
+  ],
+};
+
 const STEPS = [
   {
     icon: "✅",
@@ -32,20 +61,20 @@ const STEPS = [
 ];
 
 export function App() {
-  const [concept, setConcept] = useState<ConceptInfo | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [concept, setConcept] = useState<ConceptInfo>(DEFAULT_CONCEPT);
 
   useEffect(() => {
+    // Optional: Inhalte vom Backend laden, wenn erreichbar. Schlägt der
+    // Aufruf fehl, bleiben die Standard-Inhalte erhalten (kein Fehler sichtbar).
     fetch("/api/concept")
-      .then((res) => {
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        return res.json();
-      })
+      .then((res) => (res.ok ? res.json() : Promise.reject()))
       .then((data: ConceptInfo) => setConcept(data))
-      .catch(() => setError("Backend nicht erreichbar (läuft es auf Port 4000?)."));
+      .catch(() => {
+        /* Standard-Inhalte beibehalten */
+      });
   }, []);
 
-  const minAge = concept?.minAge ?? 18;
+  const minAge = concept.minAge;
 
   return (
     <div className="app">
@@ -58,7 +87,7 @@ export function App() {
       <nav className="nav">
         <a className="brand" href="#top">
           <span className="brand__dot" />
-          {concept?.name ?? "Myla"}
+          {concept.name}
         </a>
         <div className="nav__links">
           <a href="#modes">Modi</a>
@@ -76,10 +105,7 @@ export function App() {
           Sprich mit der Welt.<br />
           <span className="grad">Lerne ihre Sprachen.</span>
         </h1>
-        <p className="hero__sub">
-          {concept?.tagline ??
-            "Sprachen lernen, Kulturen verstehen – oder einfach auf Englisch reden."}
-        </p>
+        <p className="hero__sub">{concept.tagline}</p>
         <div className="hero__cta">
           <a className="btn btn--primary" href="#join">
             Jetzt kostenlos starten
@@ -103,8 +129,6 @@ export function App() {
             <span>geprüfte Community</span>
           </div>
         </div>
-
-        {error && <p className="error">{error}</p>}
       </header>
 
       <section className="section" id="modes">
@@ -114,7 +138,7 @@ export function App() {
           <p>Wähle vor jedem Gespräch, worum es dir geht – ganz ohne Druck.</p>
         </div>
         <div className="cards">
-          {(concept?.modes ?? []).map((mode) => (
+          {concept.modes.map((mode) => (
             <article key={mode.id} className="card">
               <div className="card__icon">{MODE_ICON[mode.id] ?? "💬"}</div>
               <h3>{mode.title}</h3>
@@ -173,7 +197,7 @@ export function App() {
       <footer className="footer">
         <span className="brand">
           <span className="brand__dot" />
-          {concept?.name ?? "Myla"}
+          {concept.name}
         </span>
         <small>Sprachen lernen · Kulturen verstehen · sicher verbunden</small>
         <small className="footer__meta">Grundgerüst (M1) · siehe /docs für Konzept &amp; Architektur</small>

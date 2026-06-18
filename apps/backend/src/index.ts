@@ -8,6 +8,19 @@ app.use(express.json());
 
 const PORT = Number(process.env.PORT ?? 4000);
 
+/** Hinweis-Seite an der Wurzel – das Backend liefert sonst nur /api/-Endpunkte. */
+app.get("/", (_req, res) => {
+  res.type("html").send(
+    `<!doctype html><html lang="de"><meta charset="utf-8">
+     <title>Myla API</title>
+     <body style="font-family:system-ui;background:#0b1020;color:#eef2ff;padding:3rem">
+       <h1>Myla – API</h1>
+       <p>Dies ist der API-Server. Die Webseite (Frontend) wird separat ausgeliefert.</p>
+       <p>Verfügbare Endpunkte: <code>/api/health</code>, <code>/api/concept</code></p>
+     </body></html>`,
+  );
+});
+
 /** Health-Check für Monitoring/Deployments. */
 app.get("/api/health", (_req, res) => {
   res.json({ status: "ok", service: "myla-backend", time: new Date().toISOString() });
